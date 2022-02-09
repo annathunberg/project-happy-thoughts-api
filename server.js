@@ -2,7 +2,8 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 
-const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/happyThoughts";
+const mongoUrl =
+  process.env.MONGO_URL || "mongodb://localhost/annashappythoughts";
 mongoose.connect(mongoUrl, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -13,7 +14,7 @@ mongoose.Promise = Promise;
 
 // Defines the port the app will run on.
 //   PORT=9000 npm start
-const port = process.env.PORT || 9000;
+const port = process.env.PORT || 8080;
 const app = express();
 
 const ThoughtsSchema = new mongoose.Schema({
@@ -44,7 +45,7 @@ app.use(express.json());
 // Start defining your routes here
 app.get("/", (req, res) => {
   res.send(
-    "Hello world! This is my API for the project Happy Thoughts, view it live at https://anna-happy-thoughts.netlify.app/ "
+    "This is my API for the project Happy Thoughts, view it live at https://anna-happy-thoughts.netlify.app/"
   );
 });
 
